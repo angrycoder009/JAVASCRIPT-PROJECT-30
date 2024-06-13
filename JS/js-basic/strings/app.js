@@ -25,3 +25,29 @@ console.log(isIndexValue)  // ans is 2.
 const fruit = 'Apple'
 const changeFruit = fruit.replace('Apple','Grapes')
 console.log(changeFruit)
+
+
+///4. --> concat() ->used to add multiple string
+const addString = fruit.concat(changeFruit,str,isIndexValue);
+console.log(addString); //AppleGrapesBanana2
+
+//5. --->padStart()or padEnd()  -->
+const lastFourDigit = '7896'
+const addXoverStartString = lastFourDigit.padStart(12,'x');
+console.log(addXoverStartString)
+
+//6 --> charAt() -->  find value using index over string
+const value = 'pineapple'
+const findCharacter = value.charAt(5);
+console.log(findCharacter)  //p
+
+//7 ---> charCodeAt() --> find ASCII code of particular character
+console.log(findCharacter.charCodeAt())
+
+//8 ---> split()  -->>> method used to arrange string inside array.
+
+
+
+/// tamplate string 
+const templateString = `Last four digit of my string is ${addXoverStartString}`;
+console.log(templateString)

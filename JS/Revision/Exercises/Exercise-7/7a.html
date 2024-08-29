@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function greet(name){
+            if(!name)
+            console.log(`Hello ${name}`)
+         }
+        greet();
+
+        function convertToFahrenheit(celsius) {
+    return (celsius * 9 / 5) + 32;
+}
+
+function convertToCelsius(fahrenheit) {
+    return (fahrenheit - 32) * 5 / 9;
+}
+
+function convertToTemperature(degree, unit) {
+    if (unit === 'c' || unit === 'C' || unit === 'celsius') {
+        return convertToCelsius(degree);
+    } else if (unit === 'F' || unit === 'f' || unit === 'fahrenheit') {
+        return convertToFahrenheit(degree);
+    } else {
+        return "Invalid unit";
+    }
+}
+
+console.log(convertToTemperature(23, 'c')); // Converts from Fahrenheit to Celsius
+console.log(convertToTemperature(23, 'F')); // Converts from Celsius to Fahrenheit
+
+function convertMileToKm(length){
+    return 1.6*length
+}
+function convertKmTomile(length){
+    return length/1.6
+}
+function convertKmToKm(length){
+    return length
+}
+function convertLength(length , from , to){
+    let result = ''
+   if(from ==='miles' && to=== 'km'){
+     result =convertMileToKm(length)
+   }else if(from==='km' && to==='miles'){
+    result =convertKmTomile(length)
+   }
+    else if(from==='km'&&to==='km'){
+    result =convertKmToKm(length)
+   } else{
+    return `Invalid Input`
+   }
+  return result
+}
+console.log(convertLength(1000,'miles','km'))
+console.log(convertLength(1000,'km','miles'))
+console.log(convertLength(50 ,'km','km'))
+
+    </script>
+    
+</body>
+</html>

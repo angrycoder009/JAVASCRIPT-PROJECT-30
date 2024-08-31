@@ -33,14 +33,23 @@
      score.wins =0
      score.losses=0
      score.ties=0
+     localStorage.removeItem('score')
      console.log(score)
     ">Reset Score</button>
     <script>
-        const score ={
-            wins:0,
+        const score = JSON.parse(localStorage.getItem('score'))||
+        {   win:0,
             losses:0,
-            ties:0
-        }
+            ties:0}
+
+        // if(!score){
+        //   score ={
+        //     win:0,
+        //     losses:0,
+        //     ties:0
+        //   }
+        // }
+     
       function playGame(playerMove) {
         const computerMove = pickComputerMove();
         let result = "";
@@ -52,12 +61,9 @@
           } else if (computerMove === "Scissors") {
             result = "Tie";
           }
-          alert(
-            `You picked Scissors. Computer picked ${computerMove}.${result}.
-             wins:${score.wins},Losses:${score.losses},Ties:${score.ties}`
-          );
+         
 
-
+      
         } else if (playerMove === "Paper") {
           if (computerMove === "Rock") {
             result = "You won";
@@ -66,8 +72,7 @@
           } else if (computerMove === "Scissors") {
             result = "You lose";
           }
-          alert(`You picked Paper. Computer picked ${computerMove}.${result}.
-           wins:${score.wins},Losses:${score.losses},Ties:${score.ties}`);
+         
 
 
         } else if (playerMove === "Rock") {
@@ -78,17 +83,18 @@
           } else if (computerMove === "Scissors") {
             result = "You won";
           }
-          alert(`You picked rock. Computer picked ${computerMove}.${result}.
-          wins:${score.wins},Losses:${score.losses},Ties:${score.ties}`);
+        
         }
-        if(result == 'You won'){
+         if(result == 'You won'){
             score.wins +=1
         } else if(result == 'You loose'){
             score.losses+=1
         } else if(result =='Tie'){
             score.ties+=1
         }
-        console.log(score)
+        localStorage.setItem('score',JSON.stringify(score))
+        alert(`You picked ${playerMove}. Computer picked ${computerMove}.${result}.
+        wins:${score.wins},Losses:${score.losses},Ties:${score.ties}`);
       }
 
       

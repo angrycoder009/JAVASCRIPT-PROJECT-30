@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObJECT</title>
+</head>
+<body>
+    <script>
+        const product = {
+            name : 'socks',
+            price : 1090
+        };
+        console.log(product)
+        console.log(product.name)
+        console.log(product.price)
+        //mdify
+        product.name ='cotton scoks'
+        console.log(product)
+        //add externally
+        product.newProperty = true
+        console.log(product)
+
+        //delete 
+        delete product.newProperty
+        console.log(product)
+
+        //another way to acces -using [] notation
+        const product2={
+            name:'shirt',
+            'delivery-time':'1 day',
+            rating :{
+                stars :4.7,
+                counting:78
+            },
+
+            fun : function message(){
+                console.log('function inside object')
+
+                //function inside object called method.
+            }
+        }
+        console.log(product2)
+        console.log(product2['name'])
+        console.log(product2['delivery-time'])
+        console.log(product2.rating.stars)
+        product2.fun()
+
+
+        //Let's learn build-in objects
+        //JSON and locaal storage
+        //json ->javascript  object notation
+        //json -have similar syntax but only different their property and value carries with ""
+        //json->doesn't allow write function in it 
+        //json ->is like universal means give more flexibility
+        //like when we send data between computer
+        //we can usse to store data
+
+        //conversion of object into json
+        console.log(JSON.stringify(product2))
+        console.log(typeof JSON.stringify( product2)) //string
+
+        //conversion of json to object
+        const jsonString =JSON.stringify(product2)
+        console.log(jsonString)
+     
+
+
+
+
+        ///local storage ->used to store values more permenentaly.
+        //a local storage doesn't get deleted while refreshing page
+    </script>
+</body>
+</html>

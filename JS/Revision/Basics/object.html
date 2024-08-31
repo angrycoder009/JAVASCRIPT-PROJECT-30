@@ -70,6 +70,59 @@
 
         ///local storage ->used to store values more permenentaly.
         //a local storage doesn't get deleted while refreshing page
+
+
+
+
+         //Autoboxing -> wrapping string to for special object to use strting as object to get more methods.
+
+        console.log('hello'.length)
+        console.log('hello'.toUpperCase())
+
+
+        //object are refrences.
+        const obj1 = {
+            message :'hello'
+        }
+        const obj2 = obj1 //make a copy of references ->copy by refernce
+
+        obj2.message ='Good job'
+        console.log(obj1)
+        console.log(obj2)
+
+        //we can't campare object directly
+        //because it has diferent reference ,
+        //no value compared
+        //example
+        const obj3 = {
+            message :'hello',
+            price:799
+        }
+       console.log(obj1 ===obj3)  //false
+       //why?? here reference are comparing , not value.
+       //to do comparing obj , 
+       //first we need to access object values
+       //to do this , we can use destructuring
+       //destructing
+       const {message ,price} =obj3
+       console.log(message)  //value : hello
+       console.log(price)
+
+
+       //shorthand object
+       const obj5 ={
+        // message :message
+        message ,
+        // method: function function1(){
+        //     console.log('method')
+        // }
+        method(){
+            console.log('method')
+        }
+       }
+       console.log(obj5)
+       //shorthand method
+       obj5.method()
     </script>
 </body>
 </html>

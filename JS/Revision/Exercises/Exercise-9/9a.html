@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise for chapter -9 </title>
+</head>
+<body>
+    <button> 9a</button>
+    <button class="js-button">9b</button>
+    <p>Click Button!!!</p>
+    <button onclick="clickButton('Head')" class="head" >Head</button>
+    <button onclick="clickButton('Tail')" class="tail" >Tail</button>
+    <p class="show"></p>
+    <input  class="typed" type="text" placeholder="Name" onkeydown="
+    ">
+
+    <button onclick="submitName();" >Submit</button>
+    <p class="displayName"></p>
+
+
+    <input placeholder="Type something" class="js-input"
+    onkeyup="
+      const inputElement = document.querySelector('.js-input');
+      document.querySelector('.js-message')
+        .innerHTML = inputElement.value;
+    ">
+    <p class="js-message" ></p>
+    <script>
+      const button =  document.querySelector('button')
+      document.querySelector('.js-button').innerHTML =`9b done`;
+      
+      function clickButton(button){
+      let result = ''
+      if(button==='Head'){
+        result ='head'
+      } else if(button ==='Tail'){
+        result ='Tail'
+      }
+      document.querySelector('.show').innerHTML =`You Choose :${result}`
+      }
+      function submitName(){
+        const input = document.querySelector('input').value;
+        document.querySelector('.displayName').innerHTML =`Your name is :${input}`
+      }
+      function displayMessage(){
+        const inputType = document.querySelector('.typed').value
+        document.querySelector('.onTyped').innerHTML =`${inputType}`
+      }
+     
+    </script>
+</body>
+</html>

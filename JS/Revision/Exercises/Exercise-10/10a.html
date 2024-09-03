@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let i = 0 ;
+        while(i<=10){
+            if(i%2==0){
+                console.log(i)
+            }
+            i++
+        }
+
+
+        let idx=5
+        while(idx>=0){
+           console.log(idx)
+           idx--
+        }
+
+
+        const num =[1,2,3]
+        let incWithoneNum = []
+        for(let i = 0 ; i < num.length ;i++){
+          incWithoneNum.push(1+num[i])
+        }
+        console.log(incWithoneNum)
+
+        function addOne(num){
+            let incWithoneNum = []
+        for(let i = 0 ; i < num.length ;i++){
+          incWithoneNum.push(1+num[i])
+        }
+        return incWithoneNum
+        } 
+        console.log(addOne(num))
+
+        function addNum(array,num){
+            let incWithoneNum = []
+        for(let i = 0 ; i < array.length ;i++){
+          incWithoneNum.push(num+array[i])
+        }
+        return incWithoneNum
+        }
+        console.log(addNum([1,2,3],3))
+        console.log(addNum([2,3,4],4))
+
+
+        function addArrays(arr1,arr2){
+            len1 = arr1.length
+            len2 =arr2.length
+            let i = 0;
+            let j = 0;
+            let newArray =[]
+            let idx =0
+            while(i <len1 && i <len2){
+              newArray[idx] = arr1[i] +arr2[j]
+              i++
+              j++
+              idx++
+            }
+          return newArray
+        }
+        console.log(addArrays([1,2,3],[2,3,4]))
+
+
+        function countPositive(num){
+            let i = 0 ;
+            let count =0
+        while(i<num.length){
+            if(num[i]>0){
+                count++
+            }
+            i++
+        }
+        return count
+        }
+        console.log(countPositive([-1,-2,3,4,5,-5,0]))
+
+
+        function minMax(nums){
+           
+            const obj = {min:0 ,max : 0};
+            obj.min =Math.min(...nums)  //... spread operator used to seperate the element  1 2 3 
+            obj.max =Math.max(...nums)
+            if(nums.length ==0){
+               obj.min =null
+               obj.max =null 
+            }
+            if(nums.length ==1){
+                obj.min =nums[0]
+                obj.max =nums[0]
+            }
+           return obj
+        }
+        console.log(minMax([10,20,30]))
+        console.log(minMax([]))
+        console.log(minMax([1]))
+
+
+        function countWords(words){
+            
+            const wordCount = {}
+            for(let i = 0; i < words.length;i++){
+                let word = words[i]
+                if(wordCount[word]){
+                    wordCount[word]++
+                } else{
+                    wordCount[word] =1
+                }
+            }
+          return wordCount
+        }
+        console.log(countWords(['hello','hello','hello','apple','apple']))
+    </script>
+</body>
+</html>

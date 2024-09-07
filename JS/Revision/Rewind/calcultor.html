@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Calculator</p>
+    <input type="text" >
+    <br>
+    <br>
+    <button onclick="inputValue('0')">0</button>
+    <button onclick="inputValue('1')">1</button>
+    <button  onclick="inputValue('2')">2</button>
+    <button  onclick="inputValue('3')">3</button>
+    <button  onclick="inputValue('4')">4</button>
+    <br>
+    <br>
+    <button  onclick="inputValue('5')">5</button>
+    <button  onclick="inputValue('6')">6</button>
+    <button  onclick="inputValue('7')">7</button>
+    <button  onclick="inputValue('8')">8</button>
+    <button  onclick="inputValue('9')">9</button>
+    <br>
+    <br>
+    <button  onclick="inputValue('+')">+</button>
+    <button  onclick="inputValue('-')">-</button>
+    <button  onclick="inputValue('*')">x</button>
+    <button  onclick="inputValue('/')">÷</button>
+    <button onclick=" evalution(calculation);
+    ">=</button>
+   <button onclick="clearInput()">c</button>
+   <p>Result:
+   <p class="result"></p>   
+</p>
+    <script>
+        
+    let calculation=''
+    function inputValue(input){
+      calculation +=input
+    document.querySelector('input').value = calculation 
+   console.log(calculation)
+    
+   
+    }
+    function  evalution(){
+        try {
+                // Use eval to calculate the result
+                const result = eval(calculation);
+                document.querySelector('input').value = result;
+                document.querySelector('.result').innerHTML = ` ${result}`;
+                calculation = result.toString(); // Reset the calculation to the result
+            } catch (e) {
+                document.querySelector('.result').innerHTML = 'Error';
+            }
+    }
+    function clearInput(){
+        calculation =''
+        document.querySelector('input').value = ''
+        document.querySelector('.result').innerHTML = ''
+
+    }
+  
+    </script>
+</body>
+</html>

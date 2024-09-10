@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Function</title>
+</head>
+<body>
+    <script>
+        greeting()
+        //normal function provide hoisting wich means we can call before or after the function
+        function greeting(){
+            console.log('hello')
+        }
+        greeting();
+        //function are the values.
+        //therefore we can store in variables.
+
+        //IF we creating with variable function , we can't use hoisting .
+        const function1 = function greeting(){
+            console.log('hello1')
+        }
+        console.log(function1)  // function body 
+        console.log(typeof function1)  //function
+        function1() //'hello' 
+        //as we run inside the function
+
+        //now this is called anonymous function without a name
+        const function2 = function (){
+            console.log('hello1')
+        }
+
+
+
+        //sinse function are values.
+        //values can also store in objects
+        const obj ={
+            num :2 ,
+            fun : function (){
+                console.log('hello3')
+            }
+        }
+        obj.fun()
+
+
+
+        //passing a value into a function using parameters
+        function display(param){
+            console.log(param)
+        }
+        display(2);
+  
+
+
+        //sinse function are values
+        //we can also pass function into function 
+        function run(param){
+            //calling parameter function inside  function
+           param()
+        }
+             //passing function as in value called callback function
+        run(function greeting(){console.log('Hello4')})
+
+
+
+
+        //function as values
+        //concept -> setTimeOut() --> allows us to run a function into future
+        // it takes two parameter 
+        //first , one function 
+        //second , time value to wait to run after
+
+        setTimeout(function greting(){
+            console.log('timeout')
+        },3000)
+        //Asysnchronous code -->comuter worn't wait for a line to finish before going to next line
+       console.log('next line')
+
+       //synchronouse code -->computer waits for one line to finish before going to next line.
+       //usually all the code we write is synchronouse code.
+
+
+
+       //setInterval()-->same parameter as setInterval
+       //it keep running the function
+       setInterval(function greting(){
+            console.log('interval')
+        },3000)
+        console.log('next line 2 ')
+    </script>
+</body>
+</html>

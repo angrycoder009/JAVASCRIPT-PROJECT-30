@@ -46,11 +46,10 @@
     }
     function  evalution(){
         try {
-                // Use eval to calculate the result
                 const result = eval(calculation);
                 document.querySelector('input').value = result;
                 document.querySelector('.result').innerHTML = ` ${result}`;
-                calculation = result.toString(); // Reset the calculation to the result
+                calculation = result.toString(); 
             } catch (e) {
                 document.querySelector('.result').innerHTML = 'Error';
             }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> App</title>
+    <button onclick="addMessage()">Add</button>
+    <button onclick="removeMessage()">Remove</button>
+</head>
+<body>
+    <script>
+        let ispopoutMes =false
+        let message =2
+         function addMessage(){
+            message +=1
+         } 
+         function removeMessage(){
+           
+            if(message>0){
+                message -=1
+            }
+            if(message ===0){
+                document.title='App'
+            }
+         }
+        setInterval(function(){
+        if(!ispopoutMes){
+             document.title = `(${message}) New message`
+             ispopoutMes = true
+        } else{
+            document.title ='App'
+            ispopoutMes=false
+        }
+       
+        },1000);
+    </script>
+</body>
+</html>

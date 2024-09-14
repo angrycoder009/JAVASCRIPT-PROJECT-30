@@ -9,12 +9,20 @@
     <button onclick="showingResult()">Add to cart</button>
     <p class="result"></p>
     <script>
+        let isShowResult = false
+        let timeoutId ;
         function showingResult(){
             const result = document.querySelector('.result')
-             result.innerHTML ='Added'
-        setTimeout(function(){
+           if(!isShowResult){
+            result.innerHTML ='Added'
+       timeoutId= setTimeout(function(){
             result.innerHTML =""
         },2000)
+        isShowResult =true
+           } else{
+            clearTimeout(timeoutId)
+           
+           }
        
         }
     </script>

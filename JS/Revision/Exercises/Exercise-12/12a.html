@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 12</title>
+</head>
+<body>
+    <button class="js-start-finish" onclick="updateBtn()">Start</button>
+    <script>
+        const add = function(){
+            console.log(2+3)
+        }
+        add();
+        function runTwise(fun){
+           fun()
+           fun()
+        }
+        runTwise(function(){
+            console.log('12b')
+        })
+        function updateBtn(){
+        const btn=document.querySelector('.js-start-finish')
+        setTimeout(function (){
+       btn.innerHTML ='Finish'
+        },1000)
+    }
+    </script>
+</body>
+</html>

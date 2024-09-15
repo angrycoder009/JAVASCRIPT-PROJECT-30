@@ -18,6 +18,19 @@
 
         regularFunction();
         arrowFunction();
+
+        //Arrow function has shorthand methods
+
+        //if we only havve one parameter in arrow function , it's optional to use curly brackets
+        const oneparam = param=>{
+            console.log(param+1)
+        }
+        oneparam(2)
+         
+
+        //if we only one line in body of arrow function, we dosn't need to return it simply automatically returns
+        const oneline =()=>2+3
+        console.log(oneline())
     </script>
 </body>
 </html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="js-btn">Click</button>
+    <script>
+       const btnElment= document.querySelector('.js-btn')
+       //ever html element has addeventlistner
+       //eventlistner same works as onlick attirbutte
+       //we pass parameter as  'event' and function that we to do actions
+
+       const evenlistnerfunction = ()=>{
+        console.log('click')
+       }
+       btnElment.addEventListener('click',evenlistnerfunction);
+ 
+         //one more advantage , it can be more eventlisters for one event
+       btnElment.addEventListener('click',()=>{
+        console.log('click2')
+       });
+
+       //other advantages is we can remove evenlister using removeEventListner()
+       btnElment.removeEventListener('click',evenlistnerfunction)
+
+       //it is best pratics to use than onclick.......
+    </script>
+</body>
+</html>

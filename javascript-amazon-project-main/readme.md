@@ -18,3 +18,9 @@ to resolve this,
    step2 :if it's in the cart , just increase the quantity.
 
   step3 : if it's not in the cart , add to the cart.
+
+
+Now , we have to make cart quantity interactive..
+to do this,
+calaculate the quantity-> we can simply loop through array and add the quantity
+put the quantiy on the page ->

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" class="js-input-todo">
+    <button class="js-add-todo">Add</button>
+    <div class="js-show-todo"></div>
+    <script>
+     const myArray =[]
+     renderTodoList();
+     function renderTodoList(){
+        let todolisthtml= ''
+        myArray.forEach((item ,idx)=>{
+            console.log(item)
+            const html = `<p>${item}<button onclick ="
+                 myArray.splice(${idx}, 1);
+                  renderTodoList();
+                 ">Delete</button class = "js-edit-todo"><button>Edit</button></p>`
+            todolisthtml +=html
+            console.log(todolisthtml)
+        })
+        document.querySelector('.js-show-todo').innerHTML =todolisthtml
+     }
+ 
+        
+     document.querySelector('.js-add-todo').addEventListener('click',()=>{
+        const inputElement=document.querySelector('.js-input-todo');
+        const retriveInput = inputElement.value;
+        myArray.push(retriveInput);
+        console.log(myArray)
+        inputElement.value =''
+       renderTodoList();
+     })
+     
+
+
+    </script>
+</body>
+</html>

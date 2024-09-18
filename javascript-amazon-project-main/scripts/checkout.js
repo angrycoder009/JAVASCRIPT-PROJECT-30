@@ -5,6 +5,7 @@ import { products } from '../data/products.js';
 //2.Generate the html
 //3.make responsive
 let matchingProduct;
+let cartsummaryHtml = ''
 cart.forEach((cartItem) => {
     const productId = cartItem.productId;
     
@@ -13,10 +14,9 @@ cart.forEach((cartItem) => {
     
     // Log the result after finding the product
     console.log(matchingProduct);
-});
 
-     
-    `<div class="cart-item-container">
+
+     cartsummaryHtml +=`<div class="cart-item-container">
             <div class="delivery-date">
               Delivery date: Tuesday, June 21
             </div>
@@ -30,11 +30,11 @@ cart.forEach((cartItem) => {
                  ${matchingProduct.name}
                 </div>
                 <div class="product-price">
-                 $${matchingProduct.price}
+                 $${(matchingProduct.priceCents/100).toFixed(2)}
                 </div>
                 <div class="product-quantity">
                   <span>
-                    Quantity: <span class="quantity-label">2</span>
+                    Quantity: <span class="quantity-label">${cartItem.quantity}</span>
                   </span>
                   <span class="update-quantity-link link-primary">
                     Update
@@ -90,4 +90,8 @@ cart.forEach((cartItem) => {
                 </div>
               </div>
             </div>
-          </div>`
+          </div>`;
+        });
+        console.log(cartsummaryHtml)
+
+document.querySelector('.js-order-summary').innerHTML =cartsummaryHtml        

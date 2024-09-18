@@ -1,23 +1,25 @@
-import {cart} from '../data/cart.js'
-import { products } from '../data/products.js';
-import { formatCurrency } from './utils/money.js';
+import { cart } from "../data/cart.js";
+import { products } from "../data/products.js";
+import { formatCurrency } from "./utils/money.js";
+import { deleteCart } from "../data/cart.js";
 //main idea of javascript
 //1.save the data
 //2.Generate the html
 //3.make responsive
 let matchingProduct;
-let cartsummaryHtml = ''
+let cartsummaryHtml = "";
 cart.forEach((cartItem) => {
-    const productId = cartItem.productId;
-    
-    // Use find to get the first matching product
-     matchingProduct = products.find((product) => product.id === productId);
-    
-    // Log the result after finding the product
-    console.log(matchingProduct);
+  const productId = cartItem.productId;
 
+  // Use find to get the first matching product
+  matchingProduct = products.find((product) => product.id === productId);
 
-     cartsummaryHtml +=`<div class="cart-item-container">
+  // Log the result after finding the product
+  console.log(matchingProduct);
+
+  cartsummaryHtml += `<div class="js-cart-item-container-${matchingProduct.id}
+                cart-item-container 
+              ">
             <div class="delivery-date">
               Delivery date: Tuesday, June 21
             </div>
@@ -35,14 +37,18 @@ cart.forEach((cartItem) => {
                 </div>
                 <div class="product-quantity">
                   <span>
-                    Quantity: <span class="quantity-label">${cartItem.quantity}</span>
+                    Quantity: <span class="quantity-label">${
+                      cartItem.quantity
+                    }</span>
                   </span>
                   <span class="update-quantity-link link-primary">
                     Update
                   </span>
-                  <span class="delete-quantity-link link-primary">
-                    Delete
-                  </span>
+                 <span class="delete-quantity-link link-primary js-delete-quantity" 
+                         data-product-id="${matchingProduct.id}">
+                         Delete
+                        </span>
+
                 </div>
               </div>
 
@@ -92,7 +98,18 @@ cart.forEach((cartItem) => {
               </div>
             </div>
           </div>`;
-        });
-        console.log(cartsummaryHtml)
+});
+console.log(cartsummaryHtml);
 
-document.querySelector('.js-order-summary').innerHTML =cartsummaryHtml        
+document.querySelector(".js-order-summary").innerHTML = cartsummaryHtml;
+
+document.querySelectorAll(".js-delete-quantity").forEach((link) => {
+  link.addEventListener("click", () => {
+    const productId = link.dataset.productId;
+    deleteCart(productId)
+    console.log(cart)
+    const container=document.querySelector(`.js-cart-item-container-${productId}`)
+    console.log(container)
+    container.remove();
+  });
+});

@@ -37,3 +37,14 @@ export function updateCartQuantity(){
              console.log(cart);
   }
 console.log(cart)
+
+export function deleteCart(productId){
+   const myArray = []
+   cart.forEach((cartItem)=>{
+    if(cartItem.productId !==productId){
+        myArray.push(cartItem)
+    }
+   })
+   cart =myArray;
+   
+}

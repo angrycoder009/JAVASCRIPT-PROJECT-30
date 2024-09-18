@@ -1,4 +1,4 @@
-import {cart} from '../data/cart.js';
+import { addToCart ,updateCartQuantity} from '../data/cart.js';
 import { products } from '../data/products.js';
 //main ideas of javascript
 //1. save the data 
@@ -61,42 +61,12 @@ products.forEach((product)=>{
 })
 document.querySelector('.js-products-grid')
             .innerHTML =productHTML;
-
-// function addToCart(){
-//    const cartElement =document.querySelectorAll('.js-cart-quantity');
-//    cartElement.forEach(cartElement=>{
-//       const currentQuantity = Number(cartElement.innerHTML);  // Convert the innerHTML to a number
-//       cartElement.innerHTML = currentQuantity + 1;  
-//    })
-// }
-
 document.querySelectorAll('.js-add-to-cart-btn')
     .forEach((button) => {
         button.addEventListener('click', () => {
             const productId = button.dataset.productId;
-         
-            // Find the item in the cart
-            let matchingItem = cart.find(item => item.productId === productId);
-
-            if (matchingItem) {
-                // If the item exists, increment the quantity
-                matchingItem.quantity += 1;
-            } else {
-                // If the item does not exist, add it to the cart
-                cart.push({
-                    productId: productId,
-                    quantity: 1
-                });
-            }
-           
-           let cartquantity =0;
-            cart.forEach((item)=>{
-               cartquantity+=item.quantity
-            })
-            const cartElement =document.querySelector('.js-cart-quantity');
-            cartElement.innerHTML =cartquantity;
-            console.log(cartquantity)
-            console.log(cart);
+            addToCart(productId)
+            updateCartQuantity();
         });
     });         
 

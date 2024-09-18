@@ -1,4 +1,5 @@
 import {cart} from '../data/cart.js';
+import { products } from '../data/products.js';
 //main ideas of javascript
 //1. save the data 
 //2. generate the html

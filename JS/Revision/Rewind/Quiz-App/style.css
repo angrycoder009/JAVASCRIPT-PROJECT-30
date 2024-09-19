@@ -1,0 +1,35 @@
+/* General styles for the quiz container */
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center'
+ 
+ 
+}
+.container {
+    width: 80%;
+    max-width: 600px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Styles for the options div */
+.Options {
+    display: flex;
+    flex-direction: column;
+}
+
+.option {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 5px 0;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background-color: #e2e6ea;
+}

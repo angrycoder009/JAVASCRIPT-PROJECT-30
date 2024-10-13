@@ -37,7 +37,7 @@ function renderToDoList() {
     // }
     // console.log(todolistHtml);
     document.querySelector('.js-todo-lists')
-        .innerHTML = todolistHtml;
+        .innerHTML = todolistHtml;  
 }
 
 function AddTodo() {

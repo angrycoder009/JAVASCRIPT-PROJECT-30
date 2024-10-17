@@ -89,7 +89,16 @@ document.querySelectorAll('.js-add-to-cart')
         quantity : 1
        });
    }
+
+    //calculate the quantiy in the caart
+    let cartQuantity = 0 
+    cart.forEach((item)=>{
+        cartQuantity+=item.quantity;
+    })
+    document.querySelector('.cart-quantity').innerHTML =`${cartQuantity}`
   
    console.log(cart)
     });
   })
+
+

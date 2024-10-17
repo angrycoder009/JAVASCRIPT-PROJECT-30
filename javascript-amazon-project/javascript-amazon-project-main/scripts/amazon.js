@@ -48,11 +48,48 @@ products.forEach((product)=>{
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary">
-            Add to Cart
-          </button>
+      <button 
+  class="add-to-cart-button button-primary js-add-to-cart"
+  data-product-id="${product.id}"
+>
+  Add to Cart
+</button>
+
         </div>
     `
     storeHtml+=html
 });
-document.querySelector('.products-grid').innerHTML =storeHtml
+document.querySelector('.products-grid').innerHTML =storeHtml 
+
+//we are make add to cart interactive
+//add event listers in all add to cart button
+document.querySelectorAll('.js-add-to-cart')
+  .forEach((button)=>{
+    button.addEventListener('click',()=>{
+     //to get product name by data attribute in button element 
+     //we use dataset propertry
+   const productId =button.dataset.productId;
+
+   //loop through a cart to check whether  same element is present or not
+   let matchingItem;
+   cart.forEach((item)=>{
+    //if it is same element already exist
+    if(productId ===item.productId){
+        //store them in matching item
+    matchingItem =item
+    }
+   })
+   if(matchingItem){
+    //if it's true in crease by one
+    matchingItem.quantity +=1
+   } else{
+
+    cart.push({
+        productId :productId,
+        quantity : 1
+       });
+   }
+  
+   console.log(cart)
+    });
+  })

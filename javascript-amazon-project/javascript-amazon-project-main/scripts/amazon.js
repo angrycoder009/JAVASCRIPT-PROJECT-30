@@ -27,7 +27,7 @@ products.forEach((product)=>{
           </div>
 
           <div class="product-quantity-container">
-            <select>
+            <select class = "js-quantity-selector-${product.id}">
               <option selected value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -66,10 +66,13 @@ document.querySelector('.products-grid').innerHTML =storeHtml
 document.querySelectorAll('.js-add-to-cart')
   .forEach((button)=>{
     button.addEventListener('click',()=>{
+      
      //to get product name by data attribute in button element 
      //we use dataset propertry
    const productId =button.dataset.productId;
-
+   //here we are added select element to add the cart quantity
+   const select =Number(document.querySelector(`.js-quantity-selector-${productId}`).value)
+   
    //loop through a cart to check whether  same element is present or not
    let matchingItem;
    cart.forEach((item)=>{
@@ -86,7 +89,7 @@ document.querySelectorAll('.js-add-to-cart')
 
     cart.push({
         productId :productId,
-        quantity : 1
+        quantity : select
        });
    }
 
@@ -99,6 +102,9 @@ document.querySelectorAll('.js-add-to-cart')
   
    console.log(cart)
     });
-  })
+
+
+    
+})
 
 

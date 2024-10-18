@@ -43,7 +43,7 @@ products.forEach((product)=>{
 
           <div class="product-spacer"></div>
 
-          <div class="added-to-cart">
+          <div class="added-to-cart js-added-cart-${product.id}">
             <img src="images/icons/checkmark.png">
             Added
           </div>
@@ -70,6 +70,12 @@ document.querySelectorAll('.js-add-to-cart')
      //to get product name by data attribute in button element 
      //we use dataset propertry
    const productId =button.dataset.productId;
+   const messageAdded = document.querySelector(`.js-added-cart-${productId}`)
+   console.log(messageAdded)
+   messageAdded.classList.add('added-to-cart-visible')
+   setTimeout(() => {
+    messageAdded.classList.remove('added-to-cart-visible');
+  }, 1000);
    //here we are added select element to add the cart quantity
    const select =Number(document.querySelector(`.js-quantity-selector-${productId}`).value)
    
@@ -103,7 +109,7 @@ document.querySelectorAll('.js-add-to-cart')
    console.log(cart)
     });
 
-
+   
     
 })
 

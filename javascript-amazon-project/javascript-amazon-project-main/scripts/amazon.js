@@ -1,4 +1,6 @@
-import {cart} from '../data/cart.js';
+import {cart,addToCart,updateCartQuantity,showCartAdded} from '../data/cart.js';
+import { products } from '../data/products.js';
+
 //creating a varaible to store the product data
 let storeHtml = ''
 //loop throght daata product to put in each elemnt of html
@@ -62,50 +64,19 @@ products.forEach((product)=>{
 });
 document.querySelector('.products-grid').innerHTML =storeHtml 
 
+
 //we are make add to cart interactive
 //add event listers in all add to cart button
 document.querySelectorAll('.js-add-to-cart')
   .forEach((button)=>{
     button.addEventListener('click',()=>{
-      
      //to get product name by data attribute in button element 
      //we use dataset propertry
    const productId =button.dataset.productId;
-   const messageAdded = document.querySelector(`.js-added-cart-${productId}`)
-   console.log(messageAdded)
-   messageAdded.classList.add('added-to-cart-visible')
-   setTimeout(() => {
-    messageAdded.classList.remove('added-to-cart-visible');
-  }, 1000);
-   //here we are added select element to add the cart quantity
-   const select =Number(document.querySelector(`.js-quantity-selector-${productId}`).value)
+   addToCart(productId);
+   showCartAdded(productId);
+   updateCartQuantity();
    
-   //loop through a cart to check whether  same element is present or not
-   let matchingItem;
-   cart.forEach((item)=>{
-    //if it is same element already exist
-    if(productId ===item.productId){
-        //store them in matching item
-    matchingItem =item
-    }
-   })
-   if(matchingItem){
-    //if it's true in crease by one
-    matchingItem.quantity +=1
-   } else{
-
-    cart.push({
-        productId :productId,
-        quantity : select
-       });
-   }
-
-    //calculate the quantiy in the caart
-    let cartQuantity = 0 
-    cart.forEach((item)=>{
-        cartQuantity+=item.quantity;
-    })
-    document.querySelector('.cart-quantity').innerHTML =`${cartQuantity}`
   
    console.log(cart)
     });

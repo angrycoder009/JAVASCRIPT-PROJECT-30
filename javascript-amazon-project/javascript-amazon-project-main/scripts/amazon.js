@@ -1,6 +1,6 @@
 import {cart,addToCart,updateCartQuantity,showCartAdded} from '../data/cart.js';
 import { products } from '../data/products.js';
-
+ 
 //creating a varaible to store the product data
 let storeHtml = ''
 //loop throght daata product to put in each elemnt of html

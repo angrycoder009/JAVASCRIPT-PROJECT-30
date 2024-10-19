@@ -2,6 +2,9 @@
  import { products } from "../data/products.js";
  import { formatCurrency } from "./utils/money.js";
  import { removeFromCart } from "../data/cart.js";
+
+ hello()
+
  //loop through cart to generate hthe html
  let storeHtml = ''
  cart.forEach((cartItem)=>{
@@ -108,5 +111,16 @@
           removeFromCart(productId)
          const container= document.querySelector(`.js-cart-item-container-${productId}`)
           container.remove();
+      updateCartQuantity();
             })
         })
+ function updateCartQuantity(){
+  let  cartQuantity= 0 ;
+  cart.forEach((cartItem)=>{
+    cartQuantity+=cartItem.quantity
+  })
+  document.querySelector('.return-to-home-link').innerHTML =`${cartQuantity}`
+ }
+ updateCartQuantity()
+      
+   

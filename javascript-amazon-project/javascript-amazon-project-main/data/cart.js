@@ -52,7 +52,7 @@ export function addToCart(productId){
     messageAdded.classList.add('added-to-cart-visible')
     setTimeout(() => {
      messageAdded.classList.remove('added-to-cart-visible');
-   }, 1000);
+   }, 1000); 
   } 
 
 export function removeFromCart(productId){

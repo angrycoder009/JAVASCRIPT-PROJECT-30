@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+  
+    </div>
+ 
+    <script>
+    const cart = [
+  {
+    id: 1,
+    name: 'Laptop',
+    price: 75000,
+    quantity: 1,
+    category: 'Electronics',
+    inStock: true
+  },
+  {
+    id: 2,
+    name: 'Headphones',
+    price: 3000,
+    quantity: 2,
+    category: 'Accessories',
+    inStock: true
+  },
+  {
+    id: 3,
+    name: 'Desk Chair',
+    price: 5000,
+    quantity: 1,
+    category: 'Furniture',
+    inStock: false
+  },
+  {
+    id: 4,
+    name: 'Smartphone',
+    price: 25000,
+    quantity: 1,
+    category: 'Electronics',
+    inStock: true
+  }
+];
+     cart.forEach((item)=>{
+        console.log(item)
+     })
+    
+     function updateTotalPrice(){
+        let storePrice=0;
+        cart.forEach((cartItem)=>{
+            storePrice+=cartItem.price
+        })
+       console.log(storePrice)
+     }
+    updateTotalPrice()
+   
+    
+   function addNewProduct(){
+       cart.push({
+        id: 1,
+        name: 'Laptop',
+        price: 75000,
+        quantity: 1,
+        category: 'Electronics',
+        inStock: true
+
+       })
+     }
+     addNewProduct()
+     console.log(cart)
+     
+     
+     function applyDiscount(){
+        cart.forEach((cartItem)=>{
+            
+        if(cartItem.category === 'Electronics'){
+             cartItem.price-= (cartItem.price *(10/100));
+            
+        }
+        })
+     }
+     applyDiscount()
+     console.log(cart)
+
+     ///display to screen
+     let storeHtml = ''
+     cart.forEach((cartItem)=>{
+      let html = `
+        <p>${cartItem.category}</p>
+        <p>${cartItem.name}</p>
+        <p>${cartItem.price}</p>
+        <p>${cartItem.id}</p>
+        <button data-product-id = "${cartItem.id}" >Remove Product</button>
+      `;
+      storeHtml+=html
+     })
+     document.querySelector('.container').innerHTML = storeHtml
+
+     document.querySelectorAll('button').forEach((button)=>{
+        const productId = button.dataset.productId;
+        deleteCart(productId)
+     })
+
+     function deleteCart(productId){
+   const myArray = []
+   cart.forEach((cartItem)=>{
+    if(cartItem.id!==productId){
+        myArray.push(cartItem)
+    }
+   })
+   cart =myArray;
+   
+}
+     
+    </script>
+</body>
+</html>

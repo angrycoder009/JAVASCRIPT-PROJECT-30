@@ -6,6 +6,11 @@ import { deleteCart } from "../data/cart.js";
 //1.save the data
 //2.Generate the html
 //3.make responsive
+hello();
+console.log(dayjs())
+const today = dayjs();
+ const deliveryDate =today.add(7,'days');
+ console.log(deliveryDate.format('dddd,MMMM D'))
 let matchingProduct;
 let cartsummaryHtml = "";
 cart.forEach((cartItem) => {

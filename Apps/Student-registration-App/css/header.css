@@ -1,0 +1,16 @@
+.header__logo h1{
+    
+    padding: 20px;
+}
+.Form__flow{
+    width: 100%;
+    background-color: #dfebed;
+    padding: 12px;
+    display: flex;
+    justify-content: space-around;
+    color: rgb(170, 168, 168);
+   
+}
+.Form__flow span input{
+   color: rgb(241, 241, 241);
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body>
+        Name :<input type="text" class="username">
+        Password : <input type="number" class="password">
+        Email <input type="email" class="email">
+        <button class="res">submit</button>
+        <div class="result">
+        
+        </div>
+        <script>
+            let name =" "
+            let email = ""
+            let password = ""
+            const users = [];
+            let submitted = false;
+            document.querySelector('.res').addEventListener('click',()=>{
+             name = document.querySelector('.username').value;
+             email = document.querySelector('.email').value;
+             password = document.querySelector('.password').value;
+
+             if(submitted){
+                return;
+             }
+             if(!name || !email || !password){
+                return;
+             }
+             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address!");
+                return;
+            }
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long!");
+                return;
+            }
+             const user = {
+                name : name,
+                email:email,
+                password:password
+             }
+             users.push(user)
+             console.log(users)
+            // console.log(name,email,password)
+            submitted =true
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage</title>
+</head>
+<body>
+    <!-- <h1>LocalStorage</h1>
+     <input type="text" class="inputTag">
+    <p>My Name is <span class="name"></span></p> -->
+
+
+    <div>
+       <input type="text" class="name">
+       <p class="result"></p>
+    </div>
+
+     
+    <script>
+        // const nameTagElement = document.querySelector('.name');
+        // const inputTagElement = document.querySelector('.inputTag');
+        // // nameTagElement.innerHTML = localStorage.myName;
+        //   nameTagElement.innerText = localStorage.getItem('myName');
+        // inputTagElement.addEventListener('input',(e)=>{
+        //     // localStorage.myName =e.target.value;
+        //     localStorage.setItem('myName',e.target.value);
+        //     nameTagElement.innerHTML=localStorage.myName
+        // }) 
+
+        const nameTagElement = document.querySelector('.name');
+        const nameResult = document.querySelector('.result');
+        const person = [{
+         name:'gopal',
+         age : 20,
+         course: 'btech'
+
+        }]
+      localStorage.setItem('person', JSON.stringify(person));
+        const personID = JSON.parse(localStorage.getItem('person'));
+       console.log(personID);
+        
+     nameResult.innerHTML = `${personID[0].name}`
+  
+       
+  
+    
+
+    </script>
+</body>
+</html>

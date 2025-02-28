@@ -20,7 +20,7 @@ cart.forEach((cartItem) => {
   matchingProduct = products.find((product) => product.id === productId);
 
   // Log the result after finding the product
-  console.log(matchingProduct);
+  // console.log(matchingProduct);
 
   cartsummaryHtml += `<div class="js-cart-item-container-${matchingProduct.id}
                 cart-item-container 
@@ -112,9 +112,9 @@ document.querySelectorAll(".js-delete-quantity").forEach((link) => {
   link.addEventListener("click", () => {
     const productId = link.dataset.productId;
     deleteCart(productId)
-    console.log(cart)
+   
     const container=document.querySelector(`.js-cart-item-container-${productId}`)
-    console.log(container)
+    
     container.remove();
   });
 });
